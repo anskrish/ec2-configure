@@ -1,0 +1,22 @@
+---
+- name: Launch EC2 Ubuntu 14.04 instance
+  ec2:
+     key_name: "{{ key_name }}"
+     group: "{{ security_group }}"
+     instance_type: "{{ instance_type }}"
+     image: "{{ image }}"
+     wait: true
+     region: "{{ region }}"
+     vpc_subnet_id: subnet-053b0f4c
+     assign_public_ip: yes
+  register: ec2
+- name: Wait for SSH response
+  wait_for:
+    host: "{{ ec2.instances[0].private_ip }}"
+    port: 22
+    delay: 60
+- name: Add instance to Ansible groups name called app
+  add_host:
+    groups: app
+    name: "{{ ec2.instances[0].private_ip }}"
+

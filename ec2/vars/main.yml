@@ -1,0 +1,6 @@
+---
+key_name: new_ubuntu
+instance_type: t2.micro
+security_group: launch-wizard-1
+image: ami-4b133c5d
+region: us-east-1
