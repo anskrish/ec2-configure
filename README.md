@@ -31,3 +31,22 @@ Before executing the playbook
 Then execute
  
 ansible-playbook ec2-launch.yml  
+
+
+While execution , if you mentioned 2 instances in instance count,  then you have to type two time "yes" for authentication.
+
+=====Example:=====
+---below i mentioned instance count 3 , so i have ti type "yes" 3 times-----
+
+TASK [Gathering Facts] ***************************************************************************************************************************************
+The authenticity of host '172.31.0.152 (172.31.0.152)' can't be established.
+ECDSA key fingerprint is 44:5d:3f:40:b7:28:dc:13:46:8b:8f:0a:4a:1e:fd:29.
+Are you sure you want to continue connecting (yes/no)? The authenticity of host '172.31.12.148 (172.31.12.148)' can't be established.
+ECDSA key fingerprint is 78:db:22:c4:02:84:aa:02:36:3d:33:34:3b:4c:4b:1e.
+Are you sure you want to continue connecting (yes/no)? The authenticity of host '172.31.11.41 (172.31.11.41)' can't be established.
+ECDSA key fingerprint is 9a:27:d2:bd:7b:61:76:61:08:af:be:48:f1:fd:65:81.
+Are you sure you want to continue connecting (yes/no)? yes
+yes
+yes
+
+
